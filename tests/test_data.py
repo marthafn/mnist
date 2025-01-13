@@ -1,4 +1,10 @@
-from project1.data import corrupt_mnist
+import sys
+import os
+
+# Add the project root to the python path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.project1.data import corrupt_mnist
 import torch
 import os.path
 import pytest

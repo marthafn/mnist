@@ -1,7 +1,11 @@
 import torch
+import sys
 import os
 
-from project1.train import MyAwesomeModel
+# Add the project root to the python path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.project1.train import MyAwesomeModel
 
 
 def test_train():
