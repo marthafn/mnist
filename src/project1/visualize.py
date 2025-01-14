@@ -7,15 +7,15 @@ from sklearn.manifold import TSNE
 from project1.model import MyAwesomeModel
 
 
-def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> None:
+def visualize(model_checkpoint: str, figure_name: str = 'embeddings.png') -> None:
     """Visualize model predictions."""
     model = MyAwesomeModel()
     model.load_state_dict(torch.load(model_checkpoint,weights_only=True))
     model.eval()
     model.fc = torch.nn.Identity()
 
-    test_images = torch.load("data/processed/test_images.pt",weights_only=True)
-    test_target = torch.load("data/processed/test_target.pt", weights_only=True)
+    test_images = torch.load('data/processed/test_images.pt',weights_only=True)
+    test_target = torch.load('data/processed/test_target.pt', weights_only=True)
     test_dataset = torch.utils.data.TensorDataset(test_images, test_target)
 
     embeddings, targets = [], []
@@ -39,8 +39,8 @@ def visualize(model_checkpoint: str, figure_name: str = "embeddings.png") -> Non
         mask = targets == i
         plt.scatter(embeddings[mask, 0], embeddings[mask, 1], label=str(i))
     plt.legend()
-    plt.savefig(f"reports/figures/{figure_name}")
+    plt.savefig(f'reports/figures/{figure_name}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     typer.run(visualize)

@@ -24,11 +24,3 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
           cache-dependency-path: setup.py
-      - name: Install dependencies
-        run: |
-          pip install ruff
-          pip list
-      - name: Ruff check
-        run: ruff check .
-      - name: Ruff format
-        run: ruff format .

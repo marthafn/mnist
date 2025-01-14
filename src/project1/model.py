@@ -26,11 +26,11 @@ class MyAwesomeModel(nn.Module):
         return self.fc1(x)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     model = MyAwesomeModel()
-    print(f"Model architecture: {model}")
-    print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
+    print(f'Model architecture: {model}')
+    print(f'Number of parameters: {sum(p.numel() for p in model.parameters())}')
 
     dummy_input = torch.randn(1, 1, 28, 28)
     output = model(dummy_input)
-    print(f"Output shape: {output.shape}")
+    print(f'Output shape: {output.shape}')
